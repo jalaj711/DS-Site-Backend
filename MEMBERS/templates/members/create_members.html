@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+
+<style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="image"],
+input[type="number"],
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<head>
+    <title>Create Member</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Create Member</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="firstname">Firstname:</label>
+            <input type="text" name="firstname" required>
+            <br>
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastname" required>
+            <br>
+            <label for="passout_year">Pass out year:</label>
+            <input type="number" name="passout_year" required>
+            <br>
+            <label for="post">Post:</label>
+            <input type="text" name="post" >
+            <br>
+            <label for="dp">Dp:</label>
+            <input type="file" name="dp" required>
+            <br>
+            <label for="instagram_url">Instagram url:</label>
+            <input type="url" name="instagram_url" >
+            <br>
+            <label for="linkedin_url">Linkedin url:</label>
+            <input type="url" name="linkedin_url" >
+            <br>
+            <label for="facebook_url">Facebook url:</label>
+            <input type="url" name="facebook_url" >
+            <br>
+            <label for="github_url">GitHub url:</label>
+            <input type="url" name="github_url" >
+            <br>
+            <input type="submit" value="Create Member">
+        </form>
+    </div>
+</body>
+</html>

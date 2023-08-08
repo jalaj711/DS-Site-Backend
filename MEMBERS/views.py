@@ -1,4 +1,5 @@
 from rest_framework.decorators import api_view
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import *
 from .serializers import *
@@ -9,6 +10,8 @@ def get_current_batch():
     if date.month > 6:
         return date.year + 1
     return date.year
+from .forms import *
+
 
 @api_view(['GET'])
 def DSmembersOverview(request):
@@ -60,3 +63,16 @@ def get_final_years(request):
     member4 = Member.objects.filter(passout_year=year).order_by('firstname')
     return JsonResponse(MemberSerializer(member4, many=True).data, safe=False)
 
+def members_form(request):
+    if request.method == 'POST':
+        form = MemberCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'members/success.html') 
+    else:
+        form = MemberCreationForm()
+
+    return render(request, 'members/create_members.html', {'form': form})
+
+
+    
