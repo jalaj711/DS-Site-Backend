@@ -14,7 +14,7 @@ class Member(models.Model):
     #current_year = models.CharField(max_length=10, choices=YEAR, default='NA')
     passout_year = models.CharField(max_length=10, default='2017')
     post = models.CharField(max_length=100, null=True,blank=True, default='NA')
-    dp = models.ImageField(upload_to='memberDPs/', blank=True, null=True)
+    dp = models.ImageField(upload_to='memberDPs/')
     instagram_url = models.URLField(max_length=300, null=True, blank=True)
     linkedin_url = models.URLField(max_length=300, null=True, blank=True)
     facebook_url = models.URLField(max_length=300, null=True, blank=True)
